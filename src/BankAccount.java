@@ -9,6 +9,13 @@ public class BankAccount {
         this.balance = balance;
 
     }
+    @Override
+    public String toString(){
+        return "Account Number: "+ accountNumber +
+                " ,Account Holder Name: "+ accountHolderName +
+                " ,Balance: "+ balance;
+    }
+
     public int getAccountNumber(){
         return accountNumber;
     }
@@ -20,6 +27,8 @@ public class BankAccount {
     public double getBalance(){
         return balance;
     }
+
+
 
     public void deposit(double amount){
         if(amount > 0 ){

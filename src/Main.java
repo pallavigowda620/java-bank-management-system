@@ -25,11 +25,11 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    //createAccount();
+                    createAccount();
                     break;
 
                 case 2:
-                    //viewAccounts();
+                    viewAccounts();
                     break;
 
                 case 3:
@@ -63,27 +63,45 @@ public class Main {
 
             }
 
-            public static void createAccount() {
-                System.out.print("Enter account number: ");
-                int accountNumber = sc.nextInt();
-                sc.nextLine();
-
-                System.out.print("Enter account holder name: ");
-                String accountHolderName = sc.nextLine();
-
-                System.out.print("Enter initial balance: ");
-                double balance = sc.nextDouble();
-
-                BankAccount newAccount = new BankAccount(accountNumber, accountHolderName, balance);
-                accounts.add(newAccount);
-                System.out.println("Account created sucessfully!");
-                
-            }
+            
 
             
 
 
 
         }
+
+        
+    }
+
+    public static void createAccount() {
+        System.out.print("Enter account number: ");
+        int accountNumber = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter account holder name: ");
+        String accountHolderName = sc.nextLine();
+
+        System.out.print("Enter initial balance: ");
+        double balance = sc.nextDouble();
+
+        BankAccount newAccount = new BankAccount(accountNumber, accountHolderName, balance);
+        accounts.add(newAccount);
+        System.out.println("Account created sucessfully!");
+                
+    }
+
+    public static void viewAccounts() {
+        if (accounts.isEmpty()) {
+            System.out.println("No accounts found. ");
+        } else {
+            System.out.println("List of all accounts: ");
+            for (BankAccount account : accounts) {
+                System.out.println(account);
+                
+            }
+
+        }
+        
     }
 }
