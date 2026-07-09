@@ -33,11 +33,11 @@ public class Main {
                     break;
 
                 case 3:
-                    //searchAccount();
+                    searchAccount();
                     break;
 
                 case 4:
-                    //depositMoney();
+                    depositMoney();
                     break;
 
                 case 5:
@@ -98,10 +98,37 @@ public class Main {
             System.out.println("List of all accounts: ");
             for (BankAccount account : accounts) {
                 System.out.println(account);
-                
+
             }
 
         }
         
     }
+
+    public static void searchAccount() {
+        System.out.print("Enter an Account Number: ");
+        int accountNumber  = sc.nextInt();
+
+        boolean found = false;
+        for (BankAccount account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                System.out.println("Account found: " + account);
+                found = true;
+                break;
+                
+            }     
+        }
+
+        if(!found) {
+            System.out.println("Account not found.");
+            
+        }
+
+
+    }
+
+    public static void depositMoney() {
+        
+    }
+
 }
