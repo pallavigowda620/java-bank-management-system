@@ -41,15 +41,15 @@ public class Main {
                     break;
 
                 case 5:
-                    //withdrawMoney();
+                    withdrawMoney();
                     break;
 
                 case 6:
-                    //checkBalance();
+                    checkBalance();
                     break;
 
                 case 7:
-                    //deleteAccount();
+                    deleteAccount();
                     break;
 
                 case 8:
@@ -154,6 +154,70 @@ public class Main {
         }
 
         
+    }
+    public static void withdrawMoney() {
+        System.out.print("Enter account number: ");
+        int accountNumber = sc.nextInt();
+        sc.nextLine();
+
+        boolean found = false;
+        for (BankAccount account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                System.out.print("Enter amount to withdraw: ");
+                double amount = sc.nextDouble();
+                sc.nextLine();
+
+                account.withdraw(amount);
+                found = true;
+                break;
+
+            }
+
+        }
+        
+        if(!found) {
+            System.out.println("Account not found. ");
+
+        }
+    }
+
+    public static void checkBalance() {
+        System.out.print("Enter account number: ");
+        int accountNumber = sc.nextInt();
+        sc.nextLine();
+
+        boolean found = false;
+        for(BankAccount account : accounts) {
+            if(account.getAccountNumber() == accountNumber) {
+                System.out.println("Current balance: " + account.getBalance());
+                found = true;
+                break;  
+            }
+
+        }
+        if(!found){
+            System.out.println("Account not found. ");
+        }
+
+    }
+    public static void deleteAccount() {
+        System.out.print("Enter account number to delete: ");
+        int accountNumber = sc.nextInt();
+        sc.nextLine();
+
+        boolean found = false;
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getAccountNumber() == accountNumber) {
+                accounts.remove(i);
+                System.out.println("Account deleted successfully. ");
+                found = true;
+                break;
+
+            }
+        }
+        if(!found) {
+            System.out.println("Account not found. ");
+        }
     }
 
 }

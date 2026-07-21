@@ -49,7 +49,8 @@ public class BankAccount {
         
         } else {
             balance -= amount;
-            System.out.println("Withdrawn ₹" + amount + " Successfully!");
+            System.out.println("Withdrawl successful. New balance: " + balance);
+            
         }
         
     }
