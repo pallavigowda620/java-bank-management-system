@@ -128,6 +128,31 @@ public class Main {
     }
 
     public static void depositMoney() {
+        System.out.print("Enter account number:");
+        int accountNumber = sc.nextInt();
+        sc.nextLine();
+
+        boolean found = false;
+        for (BankAccount account : accounts ) {
+            if (account.getAccountNumber() == accountNumber) {
+                System.out.print("Enter amount to deposit: ");
+                double amount = sc.nextDouble();
+                sc.nextLine();
+                
+                account.deposit(amount);
+                System.out.println("Deposit successful. New balance: " + account.getBalance());
+                found =true;
+                break;
+            
+            }
+
+        }
+
+        if(!found) {
+            System.out.println("Account not found.");
+
+        }
+
         
     }
 
